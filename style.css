@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root{
+  /* Primary */
+  --Blue: hsl(246, 80%, 60%);
+  --Light-red-work: hsl(15, 100%, 70%);
+  --Soft-blue-play: hsl(195, 74%, 62%);
+  --Light-red-study: hsl(348, 100%, 68%);
+  --Lime-green-exercise: hsl(145, 58%, 55%);
+  --Violet-social: hsl(264, 64%, 52%);
+  --Soft-orange-self-care: hsl(43, 84%, 65%);
+  /* Neutral */
+  --Very-dark-blue: hsl(226, 43%, 10%);
+  --Dark-blue: hsl(235, 46%, 20%);
+  --Desaturated-blue: hsl(235, 45%, 61%);
+  --Pale-Blue: hsl(236, 100%, 87%);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--Very-dark-blue);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+main {
+  display: grid;
+  max-width: 900px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: 'person work play study' 'person exercise social self-care';
+  grid-gap: 20px;
+}
+.person {
+  grid-area: person;
+  background-color: var(--Dark-blue);
+  border-radius: 10px;
+}
+.person img{
+  width: 80px;
+  border:3px solid white;
+  border-radius: 50%;
+}
+.person .info{
+  border-radius: 10px;
+  background-color: var(--Blue);
+  padding: 20px;
+}
+.person .info .text{
+  margin: 30px 0;
+}
+.person .info .text p{
+  font-weight: 400;
+  color: var(--Pale-Blue);
+  font-size: 15px;
+}
+.person .info .text h1{
+  font-weight: 300;
+  font-size: 35px;
+}
+.person .options{
+  padding: 20px;
+}
+.person .options button{
+  display: block;
+  border: 0;
+  background-color: transparent;
+  color: var(--Desaturated-blue);
+  cursor: pointer;
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+.person .options button:hover, 
+.person .options button#weekly{
+  color: white;
+}
+.box{
+  border-radius: 10px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 100px -10px;
+}
+.box .content:hover{
+  background-color: var(--Desaturated-blue);
+}
+.box .content{
+  background-color: var(--Dark-blue);
+  position:absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  padding: 20px;
+}
+.box .content .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box .content .title button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.box .content .text{
+  margin-top: 20px;
+  cursor: pointer;
+}
+.box .content .text h1{
+  font-size: 50px;
+  font-weight: 300;
+}
+.box .content .text p{
+  color: var(--Pale-Blue);
+  font-size: 15px;
+  margin-top: 10px;
+}
+.work{
+  background-color: var(--Light-red-work);
+  background-image: url('./images/icon-work.svg');
+  grid-area: work;
+}
+.play{
+  background-color: var(--Soft-blue-play);
+  background-image: url('./images/icon-play.svg');
+  grid-area: play;
+}
+.study{
+  background-color: var(--Light-red-study);
+  background-image: url('./images/icon-study.svg');
+  grid-area: study;
+}
+.exercise{
+  background-color: var(--Lime-green-exercise);
+  background-image: url('./images/icon-exercise.svg');
+  grid-area: exercise;
+}
+.social{
+  background-color: var(--Violet-social);
+  background-image: url('./images/icon-social.svg');
+  grid-area: social;
+}
+.self-care{
+  background-color: var(--Soft-orange-self-care);
+  background-image: url('./images/icon-self-care.svg');
+  grid-area: self-care;
+}
+.box .text{
+  display: none;
+}
+.text.active {
+  display: block;
+}
+.attribution{
+  position: absolute;
+  bottom: 20px;
+}
+.attribution a{
+  text-decoration: none;
+  color: var(--Desaturated-blue);
+}
+
+@media (max-width:767px) {
+  body{
+    height: auto;
+  }
+  main{
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(6, 150px);
+    grid-template-areas: "person" "work" "play" "study" "exercise" "social" "self-care";
+    width: 90%;
+    margin: 50px 0;
+  }
+  .person .info{
+    display: flex;
+    align-items: center;
+  }
+  .person .info img{
+    margin-right: 20px;
+  }
+  .person .info .text h1{
+    font-size: 25px;
+  }
+  .person .options{
+    display: flex;
+    justify-content: space-around;
+  }
+  .person .options button{
+    margin: 0;
+    font-size: 18px;
+  }
+  .box{
+    width: 100%;
+    background-position: 250px -10px;
+  }
+  .box .content .text.active{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box .content .text{
+    margin-top: 10px;
+  }
+  .box .content .text h1{
+    font-size: 30px;
+  }
+  .attribution{
+    display: none;
+  }
+}
