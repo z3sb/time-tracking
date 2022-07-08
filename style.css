@@ -80,8 +80,10 @@ main {
   font-size: 15px;
 }
 
-.person .options button:hover, 
-.person .options button#weekly{
+.person .options button:hover{
+  color: white;
+}
+.person .options button.active{
   color: white;
 }
 .box{

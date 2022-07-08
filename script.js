@@ -62,8 +62,21 @@ fetch('./data.json')
 })
 options.addEventListener('click', (e) => {
   let target = e.target;
-  let times = document.querySelectorAll('.box .content .text');
-  times.forEach(e => e.classList.remove('active'));
-  
-  document.querySelectorAll(`.box .content .${target.id}`).forEach(e => e.classList.add('active'));
+  switch(target.id){
+    case 'daily':
+    case 'weekly':
+    case 'monthly':
+      let times = document.querySelectorAll('.box .content .text');
+      times.forEach(e => e.classList.remove('active'));
+      document.querySelectorAll(`.box .content .${target.id}`).forEach(e => e.classList.add('active'));
+      break;
+  }
+})
+
+let buttons = document.querySelectorAll('.person .options button');
+buttons.forEach((e) => {
+  e.addEventListener('click', () => {
+    buttons.forEach(n => n.classList.remove('active'));
+    e.classList.add('active')
+  })
 })
